@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/index.css" rel="stylesheet">
+
+    <title>HYCU-GANGWON</title>
+</head>
+
+<body>
+
+    <div class="background">
+        <div class="nav">
+            <div class="menu">
+                <div class="sidebar-menu"><img src="/public/menu.png"></div>
+            </div>
+            <div class="title">
+                <a href="/main.html"><img src="/public/text-nav.png"></a>
+            </div>
+            <div class="time">
+                <div class="img"><img src="/public/clock.png"></div>
+                <div class="time-table"></div>
+            </div>
+        </div>
+        <div class="main-container container9">
+            <div class="ai-container ai-container9">
+                <div class="ai">
+                    <h1>Today's Recommend</h1>
+                </div>
+            </div>
+            <div class="d3-canvas">
+                <canvas id="canvas" width="200px" height="200px"></canvas>
+            </div>
+            <div class="sidebar">
+                <h3>Region</h3>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="seoul.html">seoul</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="busan.html">busan</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="daegu.html">daegu</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="incheon.html">incheon</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="gwangju.html">gwangju</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="daejeon.html">daejeon</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="ulsan.html">ulsan</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="sejong.html">sejong</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="gyeonggi.html">gyeonggi</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="gangwon.html">gangwon</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="chungbuk.html">chungbuk</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="chungnam.html">chungnam</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="jeonbuk.html">jeonbuk</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="jeonnam.html">jeonnam</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="gyenongnam.html">gyenongnam</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="gyeongbuk.html">gyeongbuk</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="jeju.html">jeju</a>
+                </li>
+            </div>
+        </div>
+        <div class="use">
+            <div style="margin-top: 3px;"><img src="/public/gongong.png"></div>
+            <div style="margin-top: 4px;"><img src="/public/openai.png"></div>
+            <div><img src="/public/papago.png"></div>
+            <div><img src="/public/chart.png"></div>
+            <div><img src="/public/Three.png"></div>
+            <div><img src="/public/jquery.png"></div>
+            <div><img src="/public/css.png"></div>
+            <div><img src="/public/figma.png"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+    <script src="../xmlToJson.js"></script>
+    <script src="../script.js"></script>
+    <script src="../main.html"></script>
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@0.150.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.150.0/examples/jsm/"
+          }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+        import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+        let scene = new THREE.Scene();
+        let renderer = new THREE.WebGLRenderer({
+            canvas: document.querySelector('#canvas'),
+            antialias: true,
+            alpha: true
+        });
+
+        renderer.outputEncoding = THREE.sRGBEncoding;
+
+        let camera = new THREE.PerspectiveCamera(35, 1);
+        camera.position.set(0, 0, 8);
+        camera.lookAt(scene.position);
+
+        // Ambient Light
+        let ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+        scene.add(ambientLight);
+
+        // Directional Light
+        let directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
+        directionalLight.position.set(1, 1, 1).normalize();
+        scene.add(directionalLight);
+
+        // Point Light
+        let pointLight = new THREE.PointLight(0xffffff, 0.6, 100);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
+        let loader = new GLTFLoader();
+        let model;
+
+        loader.load('/public/planet2/scene.gltf', function (gltf) {
+            gltf.scene.traverse(function (child) {
+                if (child.isMesh) {
+                    child.material.map.encoding = THREE.sRGBEncoding;
+                }
+            });
+
+            model = gltf.scene;
+            scene.add(model);
+            renderer.render(scene, camera);
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (model) {
+                model.rotation.y -= 0.009;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+
+    <script>
+
+        $('.sidebar-menu').click(() => {
+            if ($('.sidebar').hasClass('sidebar-open'))
+                $('.sidebar').removeClass('sidebar-open')
+            else $('.sidebar').addClass('sidebar-open')
+        });
+
+        $('#canvas').click(() => {
+            if ($('.ai-container').hasClass('ai-container-open'))
+                $('.ai-container').removeClass('ai-container-open')
+            else $('.ai-container').addClass('ai-container-open')
+        });
+
+        window.onload = function () {
+            setClock();
+            setInterval(setClock, 1000);
+        };
+
+    </script>
+
+<script type="module">
+
+    import { Configuration, OpenAIApi } from 'https://cdn.skypack.dev/openai';
+    
+    const configuration = new Configuration({
+        apiKey: '발급 받은 API 키',
+      });
+      const openai = new OpenAIApi(configuration);
+
+    const runGPT = async (data) => {
+        const response = await openai.createChatCompletion({
+          model: "gpt-3.5-turbo",
+          messages: [
+            { role: "system", content: "You are the assistant who recommends clothes for my weather" },
+            { role: "system", content: "You are the assistant who recommends use mask for fine dust and ultrafine dust" },
+            { role: "user", content: `${data}` }],
+          temperature: 1,
+          max_tokens: 256,
+          top_p: 1,
+          frequency_penalty: 0,
+          presence_penalty: 0,
+        });
+
+        const answer = response.data.choices[0].message.content;
+        const template = `<div class="aiAnswer">${answer}</div>`
+        const aiContainer = $(`.ai`)
+      
+        aiContainer.append(template);
+      
+      };
+
+      runGPT(gangwonData);
+
+</script>
+
+</body>
+
+</html>

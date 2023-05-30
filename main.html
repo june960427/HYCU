@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/index.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>HYCU-Main</title>
+
+</head>
+
+<body id="main-page">
+
+    <style>
+        .main-main {
+
+            background: url('/public/background/main-background.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 2000px;
+        }
+
+        .main-container {
+
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            padding-left: 50px;
+            padding-right: 50px;
+
+        }
+
+        .main-center {
+
+            display: flex;
+            width: 100%;
+            align-content: center;
+            justify-content: center;
+
+        }
+
+        .main-title {
+
+            position: absolute;
+            top: 420px;
+            z-index: 3;
+
+        }
+
+        .main-title-img {
+
+            width: 300px;
+            transition: all 1.5s;
+
+        }
+
+        .main-title-img-scroll {
+
+            width: 350px;
+            transition: all 1.5s;
+
+        }
+
+        .cloud1 {
+
+            position: absolute;
+            display: flex;
+            top: 150px;
+            width: 900px;
+            height: 700px;
+            z-index: 0;
+
+        }
+
+        .cloud1 img {
+
+            width: 900px;
+
+        }
+
+
+
+        .cloud2 {
+
+            position: absolute;
+            display: flex;
+            height: fit-content;
+            width: fit-content;
+            left: 100px;
+            top: 450px;
+            border-radius: 0px;
+            z-index: 5;
+            transition: all 1.5s;
+
+        }
+
+        .cloud2-img {
+
+            width: 800px;
+            /* width: 700px; */
+
+        }
+
+        .cloud2-scroll {
+
+            top: 350px;
+            z-index: 2;
+            transition: all 1.5s;
+
+        }
+
+        .cloud2-img-scroll {
+
+            top: 350px;
+            z-index: 2;
+            width: 700px;
+            transition: all 1.5s;
+
+        }
+
+        .cloud3 {
+
+            position: absolute;
+            display: flex;
+            height: fit-content;
+            width: fit-content;
+            left: 700px;
+            top: 350px;
+            border-radius: 0px;
+            z-index: 6;
+            transition: all 2s;
+
+        }
+
+        .cloud3-img {
+
+            width: 800px;
+            /* width: 650px; */
+
+        }
+
+        .cloud3-scroll {
+
+            left: 800px;
+            top: 300px;
+            z-index: 2;
+            transition: all 1.5s;
+
+        }
+
+        .cloud3-img-scroll {
+
+            width: 700px;
+            transition: all 1.5s;
+
+        }
+
+        .introduce-container {
+
+            display: flex;
+            width: 900px;
+            height: fit-content;
+            position: absolute;
+            color: white;
+            /* justify-content: center; */
+            align-items: center;
+            top: 1100px;
+            flex-direction: column;
+        }
+
+        .introduce {
+
+            width: 100%;
+            height: 450px;
+
+        }
+
+        .introduce h1 {
+
+            /* position: sticky; */
+            font-size: 70px;
+            margin-bottom: 30px;
+            opacity: 0;
+            transition: all 2s;
+
+        }
+
+        .introduce h3 {
+
+            font-size: 35px;
+            margin-bottom: 30px;
+            opacity: 0;
+            transition: all 3s;
+
+        }
+
+        .introduce p {
+
+            font-size: 20px;
+            opacity: 0;
+            transition: all 4s;
+            /* margin-bottom: 30px; */
+
+        }
+
+        .main-use {
+
+            display: flex;
+            position: absolute;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            top: 1600px;
+            width: 900px;
+            height: 300px;
+
+        }
+
+        .main-use img {
+
+            padding: 10px;
+            width: 90px;
+
+        }
+
+        .css img {
+
+            width: 60px;
+
+        }
+
+        .img-title {
+
+            width: fit-content;
+            height: fit-content;
+            font-size: 35px;
+            color: white;
+            opacity: 0;
+            transition: all 2s;
+        }
+
+        .img-box {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 890px;
+            margin-top: 50px;
+            opacity: 0;
+            transition: all 4s;
+
+        }
+
+        .img-box .css {
+
+            width: 60px;
+            transition: all 0.3s;
+
+        }
+
+        .img-box .css:hover {
+
+            width: 80px;
+
+        }
+
+        .img-box img {
+
+            transition: all 0.3s;
+
+        }
+
+        .img-box img:hover {
+
+            width: 120px;
+
+        }
+    </style>
+
+    <div class="main-main">
+        <div class="nav">
+            <div class="menu">
+                <div class="sidebar-menu"><img src="/public/menu.png"></div>
+            </div>
+            <div class="title">
+                <a href="/"><img src="/public/text-nav.png"></a>
+            </div>
+            <div class="time">
+                <div class="img"><img src="/public/clock.png"></div>
+                <div class="time-table"></div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="sidebar">
+                <h3>Region</h3>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/seoul.html">seoul</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/busan.html">busan</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/daegu.html">daegu</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/incheon.html">incheon</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/gwangju.html">gwangju</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/daejeon.html">daejeon</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/ulsan.html">ulsan</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/sejong.html">sejong</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/gyeonggi.html">gyeonggi</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/gangwon.html">gangwon</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/chungbuk.html">chungbuk</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/chungnam.html">chungnam</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/jeonbuk.html">jeonbuk</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/jeonnam.html">jeonnam</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/gyenongnam.html">gyenongnam</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/gyeongbuk.html">gyeongbuk</a>
+                </li>
+                <li class="region-item">
+                    <i><img src="/public/icon-sidebar.png" alt="..."></i>
+                    <a href="/region/jeju.html">jeju</a>
+                </li>
+            </div>
+            <div class="main-center">
+                <div class="main-title"><img src="./public/background/title.png" class="main-title-img"></div>
+                <div class="cloud1"><img src="./public/maincloud.png" class="cloud1-img"></div>
+                <div class="cloud2"><img src="./public/maincloud.png" class="cloud2-img"></div>
+                <div class="cloud3"><img src="./public/maincloud.png" class="cloud3-img"></div>
+            </div>
+            <div class="introduce-container">
+                <div class="introduce">
+                    <h1>INTRODUCE</h1>
+                    <h3>HYCU-FORECAST.</h3>
+                    <p class="p1">This website consists of regional pages, and you can check the average temperature and
+                        fine dust levels in each region.</p>
+                    <p class="p2">We receive and use data from public data portals and provide clothing recommendation
+                        services through openAi's chatgpt.
+                        Also we used figma design tool for page design, chart design used chart.js, and 3d model
+                        received data from sketchfab and rendered it using three.js.
+                        If you are curious about the tools you used, please refer to the following.</p>
+                </div>
+            </div>
+            <div class="main-use">
+                <h1 class="img-title">POEWRED-BY</h1>
+                <div class="img-box">
+                    <a href="https://www.data.go.kr/index.do">
+                        <div><img src="/public/background/gongong.png"></div>
+                    </a>
+                    <a href="https://openai.com/">
+                        <div><img src="/public/background/openAi.png"></div>
+                    </a>
+                    <a href="https://www.chartjs.org/">
+                        <div><img src="/public/background/images 1.png"></div>
+                    </a>
+                    <a href="https://threejs.org/">
+                        <div><img src="/public/background/Three.png"></div>
+                    </a>
+                    <a href="https://jquery.com/">
+                        <div><img src="/public/background/jquery 1.png"></div>
+                    </a>
+                    <a href="">
+                        <div class="css"><img src="/public/background/css.png" class="css"></div>
+                    </a>
+
+                    <a href="https://www.figma.com/">
+                        <div><img src="/public/background/figma.png"></div>
+                    </a>
+                    <a href="https://sketchfab.com/feed">
+                        <div><img src="/public/background/sketchfab.png"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="xmlToJson.js"></script>
+
+    <script>
+
+        $('.sidebar-menu').click(() => {
+            if ($('.sidebar').hasClass('sidebar-open'))
+                $('.sidebar').removeClass('sidebar-open')
+            else $('.sidebar').addClass('sidebar-open')
+        });
+
+        window.onload = function () {
+            setClock();
+            setInterval(setClock, 1000); //1초마다 setClock 함수 실행
+        };
+
+        let observer = new IntersectionObserver((e) => {
+
+            e.forEach((box) => {
+                if (box.isIntersecting)
+                    box.target.style.opacity = 1;
+                else box.target.style.opacity = 0;
+            });
+        });
+
+        var h1 = document.querySelector('h1')
+        var h3 = document.querySelector('h3')
+        var p = document.querySelectorAll('p')
+        var title = document.querySelector('.img-title')
+        var imgBox = document.querySelector('.img-box')
+
+        observer.observe(h1)
+        observer.observe(h3)
+        observer.observe(p[0])
+        observer.observe(p[1])
+        observer.observe(title)
+        observer.observe(imgBox)
+
+        $(window).on('scroll', function () {
+
+            var scrollTop = $(window).scrollTop();
+
+            if (scrollTop >= 172 && scrollTop <= 930) {
+                $('.main-title-img').addClass('main-title-img-scroll')
+                $('.cloud2').addClass('cloud2-scroll')
+                $('.cloud2-img').addClass('cloud2-img-scroll')
+                $('.cloud3').addClass('cloud3-scroll')
+                $('.cloud3-img').addClass('cloud3-img-scroll')
+            }
+            else {
+                $('.main-title-img').removeClass('main-title-img-scroll')
+                $('.cloud2').removeClass('cloud2-scroll')
+                $('.cloud2-img').removeClass('cloud2-img-scroll')
+                $('.cloud3').removeClass('cloud3-scroll')
+                $('.cloud3-img').removeClass('cloud3-img-scroll')
+            };
+        });
+
+
+    </script>
+
+</body>
+
+</html>
